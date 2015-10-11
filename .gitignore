@@ -3,3 +3,4 @@ dist/
 doc/built
 .gradle
 *.iml
+.idea/

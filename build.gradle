@@ -57,7 +57,7 @@ subprojects {
     }
 
     dependencies {
-        provided 'log4j:log4j:1.2.14'
+        compile 'log4j:log4j:1.2.17'
         testCompile 'junit:junit:4.11'
         testCompile 'org.mockito:mockito-core:1.9.5'
     }
@@ -73,8 +73,8 @@ subprojects {
 project(':monitoring') {
 
     dependencies {
-        compile 'com.google.guava:guava:14.0.1'
-        provided "org.ow2.proactive:rm-server:$schedulingVersion"
+        compile 'com.google.guava:guava:18.0'
+        compile "org.ow2.proactive:rm-server:$schedulingVersion"
 
         compile fileTree(dir: "${rootDir}/lib/", include: '*sigar*')
 
@@ -89,9 +89,9 @@ project(':iaas-api') {
         compile 'com.jayway.jsonpath:json-path:0.8.1'
         compile 'org.apache.httpcomponents:httpclient:4.2.1'
 
-        provided "org.ow2.proactive:scheduler-node:$schedulingVersion"
-        provided "org.ow2.proactive:rm-server:$schedulingVersion"
-        provided "org.ow2.proactive:rm-policy-scheduler:$schedulingVersion"
+        compile "org.ow2.proactive:scheduler-node:$schedulingVersion"
+        compile "org.ow2.proactive:rm-server:$schedulingVersion"
+        compile "org.ow2.proactive:rm-policy-scheduler:$schedulingVersion"
 
         compile project(':monitoring')
 
@@ -142,6 +142,7 @@ project('functional-tests') {
         compile project(':monitoring')
         compile project(':connectors:vmware')
 
+        testCompile "org.ow2.proactive:common-client:$schedulingVersion"
         testCompile "org.ow2.proactive:scheduler-server:$schedulingVersion"
         testCompile project(':monitoring').sourceSets.test.output
     }

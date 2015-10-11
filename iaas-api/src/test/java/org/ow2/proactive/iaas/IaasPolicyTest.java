@@ -501,7 +501,7 @@ public class IaasPolicyTest {
 
     private InternalTask createTask(int jobId, int taskId) {
         InternalTask task1 = new InternalScriptTask();
-        task1.setId(TaskIdImpl.createTaskId(new JobIdImpl(jobId, Integer.toString(jobId)), "task" + taskId, taskId, false));
+        task1.setId(TaskIdImpl.createTaskId(new JobIdImpl(jobId, Integer.toString(jobId)), "task" + taskId, taskId));
         return task1;
     }
 }

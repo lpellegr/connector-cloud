@@ -120,7 +120,6 @@ public class IaasFuncTHelper {
         String javaPath = org.ow2.proactive.iaas.testsutils.IaasFuncTUtils.getJavaPathFromSystemProperties();
         commandList.add(javaPath);
         commandList.add("-Djava.security.manager");
-        commandList.add("-Dderby.stream.error.file=" + getRmHome() + "/derby.log");
 
         commandList.add("-Djava.security.policy");
         commandList.add(CentralPAPropertyRepository.JAVA_SECURITY_POLICY.getCmdLine() +
@@ -130,6 +129,9 @@ public class IaasFuncTHelper {
         commandList.add(PAResourceManagerProperties.RM_DB_HIBERNATE_DROPDB.getCmdLine() + dropDB);
         commandList.add(PAResourceManagerProperties.RM_DB_HIBERNATE_CONFIG.getCmdLine() +
             getRmHibernateConfigPathname());
+        // TODO remove next two lines?
+        commandList.add(PAResourceManagerProperties.RM_NODE_NAME.getCmdLine() + "test");
+        commandList.add(PAResourceManagerProperties.RM_ALIVE_EVENT_FREQUENCY.getCmdLine() + "35");
         commandList.add(CentralPAPropertyRepository.PA_HOME.getCmdLine() + getRmHome());
         commandList.add(PAResourceManagerProperties.RM_HOME.getCmdLine() + getRmHome());
         commandList.add(CentralPAPropertyRepository.PA_CONFIGURATION_FILE.getCmdLine() +
